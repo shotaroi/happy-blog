@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %>
+
+<div>
+    <div>
+        <h1><%= post.title %></h1>
+    </div>
+    <div>
+        <p><%= post.body %></p>
+    </div>
+    <div class="container">
+        <p>Fill in the forms to edit the blog post</p>
+        <form action="/edit" method="post">
+            <label for="blogTitle">Blog Title</label>
+            <input 
+                type="text" 
+                id="blogTitle"
+                name="blogTitle"
+                placeholder="Edit title" 
+                requrired
+            >
+
+            <label for="blogBody">Blog Body</label>
+            <textarea 
+                name="blogBody" 
+                id="blogBody" 
+                placeholder="Edit post"
+                required
+            ></textarea>
+            <input type="submit" value="Edit">
+        </form>  
+    </div>
+</div>
+
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,14 @@
+<%- include('partials/header.ejs') %>
+
+<div>
+    <div>
+        <h1><%= post.title %></h1>
+    </div>
+    <div>
+        <p><%= post.body %></p>
+    </div>
+    <a href="/edit/<%= post.id %>">EDIT</a>
+</div>
+
+
+<%- include('partials/footer.ejs') %>
