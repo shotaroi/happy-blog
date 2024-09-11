@@ -1,34 +1,47 @@
-<%- include('partials/header.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <%- include('partials/header.ejs') %>
 
-<% if (blogList.length < 1) { %>
- <h1>No blog posts found. Please create a blog post.</h1>
-<% } else { %>
-    <h1>Blog posts</h1>
-<% } %>
+        <% if (blogList.length < 1) { %>
+        <h1>No blog posts found. Please create a blog post.</h1>
+        <% } else { %>
+            <h1>Blog posts</h1>
+        <% } %>
 
-<div>
-    <div>
-        <% blogList.forEach(post => { %>
-         <span>
-            <%= post.date %>
-         </span>
-         <h4>
-            <%= post.title %>
-         </h4>
-         <p>
-            <%= post.body.slice(0,300) %>
-            <% if (post.body.length > 299) { %> ...
-                <a href="/post/<%= post.id %>">View Blog post</a>
-            <% } %>
-         </p>
-         <div>
-            <form action="/delete/<%= post.id %>" method="post">
-                <button>Delete</button>
-            </form>
-            <a href="/edit/<%= post.id %>">Edit</a>
-         </div>
-        <% }) %>
+        <div>
+            <div>
+                <% blogList.forEach(post => { %>
+                <span>
+                    <%= post.date %>
+                </span>
+                <h4>
+                    <%= post.title %>
+                </h4>
+                <p>
+                    <%= post.body.slice(0,300) %>
+                    <% if (post.body.length > 299) { %> ...
+                        <a href="/post/<%= post.id %>">View Blog post</a>
+                    <% } %>
+                </p>
+                <div>
+                    <form action="/delete/<%= post.id %>" method="post">
+                        <button>Delete</button>
+                    </form>
+                    <a href="/edit/<%= post.id %>">Edit</a>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <%- include('partials/footer.ejs') %>
     </div>
-</div>
-
-<%- include('partials/footer.ejs') %>
+</body>
+</html>

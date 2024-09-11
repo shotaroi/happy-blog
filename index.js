@@ -11,16 +11,15 @@ const port = 3000;
 // const postPath = __dirname + "/views/post.ejs";
 
 // Using middleware to use __dirnamestatic files in public folder.
-app.use(express.static("public"));
-
-app.get("/", (req, res) => {
-    res.render("index.ejs");
-});
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // View all blog posts. Manages get and post request to "/posts".
 let blogList = [];
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.get("/", (req, res) => {
+    res.render("index.ejs");
+});
 
 app.post("/posts", (req, res) => {
     const blogTitle = req.body["blogTitle"];

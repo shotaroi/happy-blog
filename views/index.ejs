@@ -4,35 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Blog</title>
+    <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-    <%- include("partials/header.ejs") %>
-
-    <h1>Welcome to Happy Blog</h1>
-
     <div class="container">
+        <%- include("partials/header.ejs") %>
+
+        <h1>Welcome to Happy Blog</h1>
         <p>Fill in the forms to create a blog post</p>
         <form action="/posts" method="post">
-            <label for="blogTitle">Blog Title</label>
-            <input 
-                type="text" 
-                id="blogTitle"
-                name="blogTitle"
-                placeholder="Please write the title here" 
-                requrired
-            >
+            <div class="formItem">
+                <!-- <label for="blogTitle">Blog Title</label> -->
+                <input 
+                    type="text" 
+                    id="blogTitle"
+                    name="blogTitle"
+                    placeholder="Title" 
+                    requrired
+                >
+            </div>
 
-            <label for="blogBody">Blog Body</label>
-            <textarea 
-                name="blogBody" 
-                id="blogBody" 
-                placeholder="Please write your blog post here"
-                required
-            ></textarea>
+            <div class="formItem">
+                <!-- <label for="blogBody">Blog Body</label> -->
+                <textarea 
+                    name="blogBody" 
+                    id="blogBody" 
+                    placeholder="Content"
+                    required
+                ></textarea>
+            </div>
+            
             <input type="submit">
         </form>  
-    </div>
 
-    <%- include("partials/footer.ejs") %>
+        <%- include("partials/footer.ejs") %>
+    </div>
 </body>
 </html>
