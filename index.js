@@ -58,7 +58,7 @@ app.get("/edit/:id", (req, res) => {
 });
 
 // Edit a blog post
-app.post("/edit/", (req, res) => {
+app.post("/edit/:id", (req, res) => {
     // const newTitle = req.body["blogTitle"];
     // const newBody = req.body["blogBody"];
     // const newDate = new Date().toLocaleString();
