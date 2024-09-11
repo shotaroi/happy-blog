@@ -19,9 +19,9 @@
         <div>
             <div>
                 <% blogList.forEach(post => { %>
-                <span>
+                <p>
                     <%= post.date %>
-                </span>
+                </p>
                 <h4>
                     <%= post.title %>
                 </h4>
@@ -31,11 +31,13 @@
                         <a href="/post/<%= post.id %>">View Blog post</a>
                     <% } %>
                 </p>
-                <div>
-                    <form action="/delete/<%= post.id %>" method="post">
-                        <button>Delete</button>
+                <div class="buttons">
+                    <form action="/edit/<%= post.id %>" method="post">
+                        <button class="editButton">Edit</button>
                     </form>
-                    <a href="/edit/<%= post.id %>">Edit</a>
+                    <form action="/delete/<%= post.id %>" method="post">
+                        <button class="deleteButton">Delete</button>
+                    </form>
                 </div>
                 <% }) %>
             </div>
